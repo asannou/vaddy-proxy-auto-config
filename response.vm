@@ -1,0 +1,9 @@
+#set($host = $input.params('host'))
+function FindProxyForURL(url, host)
+{
+  if (shExpMatch(host, "$host")) {
+    return "PROXY ${proxy}";
+  } else {
+    return "DIRECT";
+  }
+}
